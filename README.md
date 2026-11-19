@@ -43,6 +43,7 @@
 ### 웹 체험판과 소개 영상
 
 - 웹 체험판: https://kimble125.github.io/hondibopseoye-jeju-bigdata-center-agent/
+- 소개 영상: https://youtu.be/FIvZMRlHOlA
 
 웹 체험판(`docs/` 폴더, GitHub Pages)은 실제 프로그램이 낸 응답을 미리 기록해 둔 것으로, 준비된 문장에만 답합니다. 체험판에도 원본 데이터 파일은 들어 있지 않고, 원본에서 계산한 결과 숫자만 들어 있습니다.
 
