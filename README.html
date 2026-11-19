@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>혼디봅서예</title><style>body{font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111;
+line-height:1.6;max-width:980px;margin:24px auto;padding:0 20px;font-size:15px;word-break:keep-all}
+h1{font-size:28px;border-bottom:3px solid #111;padding-bottom:6px}h2{font-size:21px;margin-top:34px;border-bottom:1px solid #999;padding-bottom:4px}
+h3{font-size:17px;margin-top:24px;color:#0B5563}table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:14px}
+th,td{border:1px solid #9aa3ab;padding:6px 8px;vertical-align:top;text-align:left}th{background:#EEF3F5}
+code{background:#F1F3F5;padding:1px 4px;border-radius:3px;font-family:Consolas,Menlo,monospace;font-size:13px}
+pre{background:#F1F3F5;padding:10px 12px;border-radius:4px;overflow:auto}pre code{background:none;padding:0}
+hr{border:0;border-top:1px solid #ccc;margin:26px 0}a{color:#0B5563}@media print{body{max-width:none;margin:0;font-size:12px}}</style></head><body>
+<h1>혼디봅서예</h1>
+<p><b>처음 가는 데이터센터, 걱정 대신 기대로</b></p>
+<p>「제주 AI·빅데이터 활용 AI Agent 개발 챌린지」 제출작입니다. 제주빅데이터센터에 처음 가는 사람이 ① 가기 전에 어떤 데이터가 있는지 둘러보고 ② 센터에서 받은 CSV로 문서 초안을 만들고 쓰려는 문장을 검산하고 ③ 반출 신청 전에 가릴 숫자를 가리고 ④ 결과를 기다리는 동안 무엇을 하면 되는지까지 돕는 로컬 웹 에이전트입니다.</p>
+<ul>
+<li>인터넷과 API 키 없이 모든 기능이 동작합니다.</li>
+<li>설치할 프로그램은 <b>Python 3.12 이상 하나</b>입니다. 추가 패키지를 받지 않습니다.</li>
+<li>넣은 파일은 이 PC의 메모리에서만 계산하고, 저장하거나 밖으로 보내지 않습니다.</li>
+</ul>
+<p>함께 든 문서: <code>DATA_USE.md</code>(데이터 활용 명세), <code>RESULT_NOTES.md</code>(결과 설명자료). 같은 내용을 브라우저로 보기 편하게 <code>README.html</code>, <code>DATA_USE.html</code>, <code>RESULT_NOTES.html</code> 로도 넣었습니다.</p>
+<hr>
+<h2>1. 3분 실행</h2>
+<h3>걸음 1. Python 설치(이미 3.12 이상이 있으면 건너뜁니다)</h3>
+<ol>
+<li><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> 에서 Windows용 설치 파일을 내려받아 실행합니다. 지금 배포되는 'Python install manager'는 'Install'을 누르면 되고, Microsoft Store에서 'Python Install Manager'를 설치해도 같습니다. 예전 방식의 설치 파일(<code>python-3.x.x-amd64.exe</code>)이면 기본값으로 설치하고, 'Add python.exe to PATH' 칸이 보이면 체크합니다.</li>
+<li>확인: 시작 메뉴에서 '명령 프롬프트'를 열고 <code>py --version</code> 을 입력합니다. <code>Python 3.12</code> 이상의 숫자가 나오면 됩니다(<code>py</code> 가 없다고 나오면 <code>python --version</code>). Python install manager는 처음 실행할 때 최신 Python을 한 번 내려받습니다(이때만 인터넷이 필요합니다).</li>
+<li>설치하는 것은 Python 하나뿐입니다. <code>pip install</code> 같은 추가 설치는 하지 않습니다.</li>
+</ol>
+<h3>걸음 2. 압축 풀기</h3>
+<p>ZIP을 아무 폴더에나 풉니다. 한글이나 빈칸이 든 경로도 됩니다(예: <code>C:\Users\사용자\Desktop\jeju-evidence-mate</code>).</p>
+<h3>걸음 3. <code>run.bat</code> 두 번 누르기</h3>
+<ul>
+<li>검은 창에 <code>준비되었습니다: http://127.0.0.1:8765/</code> 가 나오고, 기본 브라우저에 화면이 열립니다.</li>
+<li>브라우저가 저절로 열리지 않으면 Chrome이나 Edge 주소창에 <code>http://127.0.0.1:8765/</code> 를 입력합니다.</li>
+<li>끝낼 때는 검은 창을 닫거나 그 창에서 <code>Ctrl+C</code> 를 누릅니다.</li>
+</ul>
+<p>macOS·Linux에서는 터미널에서 <code>python3 run.py</code> 를 실행합니다(Python 3.12 이상).</p>
+<hr>
+<h2>2. 처음 5분 따라 하기</h2>
+<p>화면은 왼쪽(첫 화면, 문장 확인하기, 문서 초안)과 오른쪽(자료 현황판)으로 나뉩니다. 처음 켜면 제주데이터허브의 공개 카드 데이터(실제 값, 2018년 1월–2025년 6월)가 이미 들어 있습니다.</p>
+<table><tr><th>순서</th><th>할 일</th><th>보게 되는 것</th></tr>
+<tr><td>1</td><td>위쪽 <b>'데이터 둘러보기'</b> 를 누르고 <code>카드</code> 를 검색</td><td>센터 데이터 71종 가운데 카드 관련 표의 설명과 칸 이름. 마음에 드는 것은 '받을 목록에 담기'</td></tr>
+<tr><td>2</td><td>위쪽 <b>'센터 이용 안내'</b></td><td>방문 전부터 퇴실 뒤까지의 센터 규칙과 항목마다의 출처, '아직 확인되지 않은 것'</td></tr>
+<tr><td>3</td><td>첫 화면 <b>'처음 오셨나요?'</b> 에서 '사업계획서'를 고르고 업종에 <code>카페</code>, 지역에 <code>애월읍</code> 을 적은 뒤 <b>'받을 자료 추천받기'</b></td><td>센터에서 받을 표와 받는 법</td></tr>
+<tr><td>4</td><td><b>'문장 확인하기'</b> 칸에 <code>한식 음식점업은 내국인 관광객이 도민보다 카드를 더 많이 썼다</code> 를 넣고 '확인하기'</td><td>판정 <b>이렇게 고쳐 쓰세요</b>, 두 값과 차이, 고쳐 쓸 문장, '어떻게 확인했나요', '근거 한 장'</td></tr>
+<tr><td>5</td><td><code>한식당은 관광객이 도민보다 많이 쓴다</code></td><td>되묻기: 내국인 관광객 / 외국인 / 관광객 전체 가운데 고르는 단추</td></tr>
+<tr><td>6</td><td><b>'문서 초안'</b> 의 '사업계획서: 시장·고객 현황 칸'에 <code>한식 음식점업</code> 을 넣고 '초안 만들기'</td><td>자료 진단, 칸별 문단과 표, 본뜬 양식과 출처, 칸마다 '복사'</td></tr>
+<tr><td>7</td><td>오른쪽 <b>'가상 센터 CSV로 해 보기'</b> 에서 <code>SYNTHETIC_card_emd_v02_202506.csv</code></td><td>상태 칩이 '가상 데이터', '반출 사전 점검: 켜짐'으로 바뀜</td></tr>
+<tr><td>8</td><td><code>성산읍 스포츠 및 레크레이션 용품 임대업 카드 이용 현황을 알려 주세요</code></td><td>10 미만 값이 든 구분과 합계·비중이 함께 가려진 표</td></tr>
+<tr><td>9</td><td>답 카드의 <b>'근거 한 장'</b> 을 열기</td><td>맨 위에 '반출 신청용 점검 요약' 표, '인쇄 / PDF로 저장' 단추</td></tr>
+<tr><td>10</td><td>오른쪽 <b>'퇴실 정리(자료와 결과 지우기)'</b></td><td>넣은 파일과 결과가 지워지고 공개 데이터로 돌아감</td></tr>
+</table>
+<p>가상 파일의 숫자는 지어낸 값입니다. 그 파일에서 나온 화면과 인쇄물에는 '가상 데이터 시연(실제 수치가 아닙니다)'이 붙습니다.</p>
+<hr>
+<h2>3. 사용자 매뉴얼</h2>
+<h3>3-1. 가기 전에(집 PC에서도 됩니다)</h3>
+<ul>
+<li><b>데이터 둘러보기</b>: 센터 데이터 71종의 이름, 설명, 칸 이름(한글·영문), 예시, 반출 조건을 검색하거나 분야별로 봅니다. '많이 찾는 데이터' 칩은 센터 화면의 2026년 검색·반출 상위 목록입니다. 여기서 보는 것은 공개된 명세서의 설명이고, 데이터 자체는 센터에 가야 받을 수 있습니다.</li>
+<li><b>받을 자료 메모</b>: '받을 목록에 담기'로 모은 표의 이름과 받는 법을 복사하거나 인쇄해 센터에 가져갑니다.</li>
+<li><b>받을 자료 추천</b>: '처음 오셨나요?' 카드에서 고르거나, 문장 칸에 <code>카페 창업 사업계획서를 쓰려는데 어떤 자료를 받아야 하나요</code> 처럼 묻습니다.</li>
+<li><b>센터 이용 안내</b>: 예약, 가져올 수 있는 것, 자료 받기, 반출 신청, 기다리기, 퇴실까지. 항목마다 출처가 있고, 확인하지 못한 것은 '아직 확인되지 않은 것'에 따로 있습니다. 현장 안내가 다르면 센터 안내를 따르세요.</li>
+</ul>
+<h3>3-2. 센터에서: CSV 넣기</h3>
+<ul>
+<li>오른쪽 <b>'CSV 파일 넣기'</b> 로 센터 시스템에서 내려받은 파일(<code>Results_날짜_시간.csv</code>)을 그대로 넣습니다. 이름을 바꾸거나 열어서 고칠 필요가 없습니다.</li>
+<li>머리글로 어떤 표인지 알아봅니다: 「카드 이용 현황(읍면동)_v02」, 「(요일별)_v02」, 「(시간대)_v02」, 허브 공개 표. 카드 표는 같은 종류의 파일을 여러 개(예: 달마다 하나씩) 넣으면 합쳐서 봅니다.</li>
+<li>그 밖의 표(버스, 폐기물 등)는 한 번에 한 파일씩 '자료 요약'(기간, 행 수, 숫자 칸의 합계와 범위, 주요 범주)만 해 줍니다. <b>이 요약에는 반출 사전 점검이 적용되지 않습니다</b>(화면에도 그렇게 알립니다). 센터 자료라면 이 요약을 그대로 반출 신청에 쓰지 마세요.</li>
+<li>센터의 카드 표(위 세 종류)가 들어오면 <b>반출 사전 점검이 켜집니다.</b></li>
+<li>파일 하나는 약 60MB까지 넣을 수 있습니다. 더 크면 기간이나 조건을 나눠 받아 주세요.</li>
+</ul>
+<h3>3-3. 문장 확인하기(검산)</h3>
+<p>문서에 쓰려는 문장이나 궁금한 점을 그대로 적습니다.</p>
+<table><tr><th>이렇게 적으면</th><th>이렇게 답합니다</th></tr>
+<tr><td><code>2025년 6월 한식 음식점업 카드 이용 현황을 알려 주세요</code></td><td>도민·내국인 관광객·외국인·법인별 금액과 비중</td></tr>
+<tr><td><code>자동차 임대업은 내국인 관광객이 도민보다 이용금액이 많다</code></td><td><b>써도 됩니다</b> + 두 값, 차이, 근거를 붙인 문장</td></tr>
+<tr><td><code>면세점 카드 이용금액이 작년 같은 달보다 늘었다</code></td><td><b>이렇게 고쳐 쓰세요</b> + 실제 방향으로 고친 문장</td></tr>
+<tr><td><code>한식 음식점업이 카드 이용금액 1위다</code></td><td>순위 확인과 상위 5개 업종</td></tr>
+<tr><td><code>식당은 관광객이 많이 쓴다</code></td><td>되묻기(어느 업종, 어느 관광객인지 단추로 고름)</td></tr>
+<tr><td><code>노형동 한식 음식점업 카드 이용금액</code> (공개 자료만 있을 때)</td><td>센터에서 받을 표와 달 안내</td></tr>
+<tr><td><code>내년에 늘까요</code>, <code>왜 줄었나요</code>, <code>전체 매출은</code>, <code>가게가 몇 곳</code></td><td><b>이 자료로는 쓸 수 없습니다</b> + 이유</td></tr>
+</table>
+<ul>
+<li>달을 적지 않으면 자료의 가장 최근 달로 답하고 그렇게 알립니다.</li>
+<li>알아듣는 말: 업종 이름(공개 명세서의 42개와 자료에 있는 이름), 줄임말(카페, 편의점, 한식당, 렌터카, 골프장, 호텔, 주유소, 빵집 등), 지역 이름(법정동, 읍면), 대상(도민, 내국인 관광객, 외국인, 관광객 전체, 법인), 재는 값(이용금액, 건수, 이용자 수).</li>
+<li>답 카드에는 판정, 표, 알림(한계), '어떻게 확인했나요'(판단 기록), 다음에 해 볼 문장, '근거 한 장'이 있습니다.</li>
+</ul>
+<h3>3-4. 문서 초안</h3>
+<table><tr><th>틀</th><th>넣을 것</th><th>나오는 것</th></tr>
+<tr><td>사업계획서: 시장·고객 현황 칸</td><td>업종(필수), 지역(선택, 센터 자료가 있을 때)</td><td>시장 규모와 12개월 추이, 전년 같은 달 대비, 고객 구성, 성별·연령, 계절성, 요일·시간대 참고, 지역 상세</td></tr>
+<tr><td>현황자료: 월간 소비동향</td><td>달(예: <code>202506</code>), 대상</td><td>금월·전월·전년 같은 달 비교, 업종별 증감, 각주</td></tr>
+<tr><td>자료 요약: 목적에 맞춘 한 장</td><td>업종</td><td>고객 구성 표, 전년 같은 달 대비</td></tr>
+</table>
+<ul>
+<li>초안마다 '본뜬 양식과 출처'가 적혀 있습니다. 초안은 공식 양식이 아닙니다.</li>
+<li>양식의 "경쟁 강도", "향후 전망" 칸은 채우지 않고 "이 자료로는 쓸 수 없습니다"와 필요한 자료를 적습니다.</li>
+<li>칸마다 <b>'복사'</b>: 표는 탭으로 나뉜 글자로 복사됩니다. 엑셀에는 칸대로 붙고, 한글·워드에서는 붙인 뒤 '표로 변환' 기능을 쓰면 표가 됩니다. <b>'전체 복사'</b> 는 출처 줄까지 함께 복사합니다.</li>
+</ul>
+<h3>3-5. 가져갈 때: 반출 신청 전 점검</h3>
+<ul>
+<li>센터 표에서 나온 결과는 이용자수·건수·금액 합계 가운데 가장 작은 값이 10 미만인 구분을 가리고("10 미만(가림)"), 하나라도 가리면 합계와 비중도 함께 가립니다.</li>
+<li>'근거 한 장'과 문서 초안의 인쇄 화면 맨 위에 <b>'반출 신청용 점검 요약'</b>(원본 데이터, 가공 방법, 실린 수치, 10 미만 처리, 역산 점검, 그림, 원본·발췌, 활용 목적, 만든 도구)이 붙습니다. '활용 목적' 칸은 직접 채웁니다.</li>
+<li><b>'인쇄 / PDF로 저장'</b> 을 누르고 인쇄 창에서 'PDF로 저장'을 고르면 반출 신청에 첨부할 파일이 됩니다. 신청은 센터 시스템에서 직접 하며, <b>승인 여부는 센터가 정합니다.</b> 이 프로그램은 승인을 보장하지 않습니다.</li>
+<li>센터 표가 쓰인 인쇄물에는 그림(차트)을 넣지 않습니다.</li>
+</ul>
+<h3>3-6. 퇴실 정리</h3>
+<p><b>'퇴실 정리(자료와 결과 지우기)'</b> 를 누르면 넣은 파일, 만든 결과, 대화, 받을 자료 메모가 지워집니다. 지워진 결과의 주소를 다시 열면 '지워진 결과입니다'가 나옵니다. 따로 열어 둔 인쇄용 탭은 닫아 주세요. 직접 저장한 PDF, 내려받은 CSV, 복사해 둔 내용은 이 프로그램이 지우지 못하니 센터 안내에 따라 정리해 주세요.</p>
+<hr>
+<h2>4. 검증(재현)</h2>
+<table><tr><th>무엇</th><th>방법</th><th>기대하는 끝줄</th></tr>
+<tr><td>문장 검산 정답표 26문항</td><td><code>run_eval.bat</code> 두 번 누르기</td><td><code>PASS 26/26</code></td></tr>
+<tr><td>문서·요약·추천 정답표 11문항</td><td>명령 프롬프트에서 압축 푼 폴더로 이동한 뒤 <code>py -3 -X utf8 -m evm.evalrun --docs eval/golden_docs.json</code></td><td><code>PASS 11/11</code></td></tr>
+<tr><td>화면 시험(서버를 잠깐 띄워 갈래별로 한 번씩)</td><td><code>py -3 -X utf8 -m tools.smoke</code></td><td><code>SMOKE PASS 49/49</code></td></tr>
+</table>
+<ul>
+<li>정답표는 계산 규칙을 구현과 따로 한 번 더 짠 참조 계산(<code>eval/make_golden_card.py</code>, <code>eval/make_golden_docs.py</code>)으로 만들었습니다.</li>
+<li>검증 명령은 시작할 때 입력 파일의 SHA-256을 확인하고, 다르면 멈춥니다. <code>run_eval.bat</code> 은 문장 검산 26문항과 그 입력 파일 3개를, 문서 정답표 명령은 11문항과 공개 데이터 4종을 포함한 입력 파일 7개를 검사합니다.</li>
+<li>같은 입력에는 늘 같은 출력이 나옵니다(난수와 외부 호출이 없습니다).</li>
+</ul>
+<hr>
+<h2>5. 의존성과 환경</h2>
+<table><tr><th>항목</th><th>내용</th></tr>
+<tr><td>운영체제</td><td>Windows 11(센터 PC)이 목표 환경입니다. 코드는 운영체제에 따라 달라지지 않게 썼고, 실행 확인은 macOS에서 했습니다(7절)</td></tr>
+<tr><td>필요한 프로그램</td><td>Python 3.12 이상(표준 라이브러리만 사용)</td></tr>
+<tr><td>추가 패키지</td><td>없음(<code>pip install</code> 을 하지 않습니다)</td></tr>
+<tr><td>브라우저</td><td>Chrome 또는 Edge</td></tr>
+<tr><td>인터넷</td><td>필요 없음. 화면의 글꼴과 스크립트도 밖에서 받아오지 않습니다</td></tr>
+<tr><td>GPU, 데이터베이스, 모델 파일</td><td>쓰지 않음</td></tr>
+<tr><td>포트</td><td><code>127.0.0.1:8765</code> (이 PC 안에서만 응답)</td></tr>
+</table>
+<h3>환경변수(설정 파일) 예시</h3>
+<p>설정 파일이 없어도 그대로 동작하며, 제출물에는 설정 파일이 들어 있지 않습니다. 바꾸고 싶을 때만 압축 푼 폴더(<code>run.bat</code> 이 있는 곳)에 <code>.env</code> 라는 이름의 텍스트 파일을 만들어 아래 내용을 넣습니다. 설정은 이것 하나뿐입니다.</p>
+<pre><code># 넣은 파일과 결과는 어느 값이든 메모리에만 있고, 프로그램을 끄면 사라집니다.
+# 0이면 다른 종류의 표를 넣을 때 앞의 결과를 지웁니다(기본값).
+# 1이면 다른 종류의 표를 넣어도 프로그램을 끌 때까지 결과를 남깁니다.
+KEEP_RESULTS=0</code></pre>
+<p>API 키 항목은 없습니다(외부 API를 부르지 않습니다).</p>
+<hr>
+<h2>6. 오류와 해결</h2>
+<table><tr><th>증상</th><th>해결</th></tr>
+<tr><td><code>run.bat</code> 을 눌렀더니 <code>Python 3.12 or newer is required</code></td><td>Python이 없거나 3.12보다 낮습니다. 1절 걸음 1대로 설치한 뒤 다시 누릅니다</td></tr>
+<tr><td><code>8765번 포트를 다른 프로그램이 쓰고 있습니다</code></td><td>이미 실행 중인 창이 있으면 그 창을 씁니다. 아니면 명령 프롬프트에서 <code>run.bat --port 8766</code></td></tr>
+<tr><td>브라우저가 열리지 않음</td><td>주소창에 검은 창에 나온 주소(<code>http://127.0.0.1:8765/</code>)를 직접 입력</td></tr>
+<tr><td>'Windows의 PC 보호' 같은 보안 경고 창</td><td>센터 PC에서는 실행을 멈추고 운영자에게 확인해 주세요. 개인 PC에서는 '추가 정보' → '실행'으로 넘어갈 수 있습니다. <code>run.bat</code> 은 Python을 찾아 <code>run.py</code> 를 실행하는 몇 줄짜리 글자 파일입니다</td></tr>
+<tr><td>CSV를 넣었더니 '자료 요약'만 나옴</td><td>카드 표가 아닌 표입니다. 문장 검산과 틀 초안은 카드 이용 표에서 됩니다. '공개 카드 자료로 돌아가기'를 누르면 처음 상태가 됩니다</td></tr>
+<tr><td>같은 파일을 두 번 넣었다는 안내</td><td>내용이 같은 파일은 한 번만 넣습니다(행이 두 배로 세어지는 것을 막습니다)</td></tr>
+<tr><td>"지금 넣은 자료에는 ○○○○년 ○월 값이 없습니다"</td><td>그 달의 파일을 센터에서 받아 추가로 넣습니다</td></tr>
+<tr><td>"이 자료로는 쓸 수 없습니다"</td><td>예측, 원인, 업종 전체 매출, 점포 수는 이 자료로 답할 수 없습니다. 안내된 다른 자료가 필요합니다</td></tr>
+<tr><td>글자가 깨져 보임</td><td>센터 CSV는 UTF-8입니다. 엑셀로 열어 다시 저장한 파일이면 원래 내려받은 파일을 넣어 주세요</td></tr>
+<tr><td>화면이 멈춘 것 같음</td><td>검은 창이 닫혔는지 봅니다. 닫혔으면 <code>run.bat</code> 을 다시 누릅니다(넣었던 파일은 다시 넣어야 합니다)</td></tr>
+</table>
+<hr>
+<h2>7. 제약사항</h2>
+<ul>
+<li>숫자는 <b>비씨카드 결제분만</b> 집계한 자료에서 나옵니다. 업종 전체 매출이 아닙니다.</li>
+<li>묶음에 든 공개 데이터는 2025년 6월까지입니다.</li>
+<li>참가자는 실제 센터 CSV를 보지 못했습니다. 센터 표의 형식은 공개 명세서와 대회 게시판 운영 답변에 맞췄고, 가상 데이터로 시험했습니다. 실제 파일에서의 동작은 확인되지 않았습니다.</li>
+<li>반출 사전 점검은 센터의 심사를 대신하지 않습니다.</li>
+<li>문장 이해는 규칙 기반입니다. 사전에 없는 표현은 되묻거나 예시를 제안합니다.</li>
+<li>문장 검산과 틀 초안은 카드 이용 표에서만 됩니다. 다른 표는 자료 요약과 받을 자료 추천까지이고, 그 자료 요약에는 반출 사전 점검이 적용되지 않습니다.</li>
+<li>이용자 수의 합은 서로 다른 사람의 수가 아닙니다(같은 사람이 여러 줄에 셀 수 있습니다).</li>
+<li>센터 이용 안내는 2026-11-19에 확인한 내용입니다.</li>
+<li>개발과 확인은 macOS(Python 3.14, Chrome)에서 했습니다. Windows PC에서의 실행은 마감 전에 확인하지 못했습니다.</li>
+</ul>
+<hr>
+<h2>8. 폴더 구성</h2>
+<pre><code>run.bat            실행(Windows)
+run_eval.bat       정답표 검증(Windows)
+run.py             실행 진입점
+README.md          이 문서(매뉴얼)          README.html      같은 내용(브라우저용)
+DATA_USE.md        데이터 활용 명세          DATA_USE.html
+RESULT_NOTES.md    결과 설명자료             RESULT_NOTES.html
+evm/               에이전트 코드(이해, 계산, 판정, 문서 틀, 서버, 인쇄용 쪽)
+web/               화면(HTML, JavaScript, CSS)
+inputs/            공개 데이터 4종과 설정 파일(센터 이용 안내, 데이터 목록, 추천·틀, 이름)
+samples/           가상 데이터 3개(SYNTHETIC_*.csv)
+eval/              정답표와 참조 계산
+tools/             화면 시험</code></pre>
+<hr>
+<h2>9. 센터 운영자께</h2>
+<ul>
+<li><b>탑재</b>: ① Python 3.12 이상 설치 ② 이 폴더를 PC에 풀기 ③ 바탕화면에 <code>run.bat</code> 바로가기 만들기. 서명 없는 확장 모듈(.pyd, .dll)과 추가 패키지를 쓰지 않습니다.</li>
+<li><b>규칙이 바뀌면</b> <code>inputs/center_guide.json</code> 의 문장만 고치면 됩니다(항목마다 <code>text</code>, <code>source</code>). 데이터가 늘면 <code>inputs/center_catalog.json</code>, 추천과 틀은 <code>inputs/report_catalog.json</code>, 이름은 <code>inputs/branding.json</code> 입니다. 문장과 목록은 코드를 고치지 않고 바꿀 수 있습니다(계산식과 점검 기준을 바꿀 때는 코드 수정이 필요합니다).</li>
+<li><b>보존 스위치</b>: 설정의 <code>KEEP_RESULTS</code> 는 기본 <code>0</code> 입니다. 어느 값이든 넣은 파일과 결과는 메모리에만 있고 프로그램을 끄면 사라집니다.</li>
+<li><b>이용 기록</b>: 이 프로그램은 넣은 파일의 내용이나 문장을 기록 파일로 남기지 않습니다.</li>
+<li><b>외부 전송</b>: 이 프로그램은 외부 주소에 접속하지 않습니다. 외부 AI를 부르는 기능이 없습니다.</li>
+</ul>
+<hr>
+<h2>10. AI 활용과 외부 자원 명시(대회 규칙 1)</h2>
+<table><tr><th>항목</th><th>내용</th></tr>
+<tr><td>실행 중에 쓰는 AI 모델</td><td>외부 AI 모델을 부르지 않습니다. 에이전트의 판단(이해, 자료 확인, 계획, 판정, 숫자 검사)은 이 PC 안의 규칙과 계산으로 동작합니다</td></tr>
+<tr><td>개발에 쓴 AI 도구</td><td>설계·문서·검증: Aside(AI 브라우저 에이전트, Claude Fable 5.2) / 구현: Aside의 하위 작업(Claude Opus 5.5)이 설계서와 정답표를 받아 코드 작성 / 독립 검토: GPT-6.2 Astra / 주제 검토: Gemini 4(웹) / 자료 조사 보조: Claude Sonnet 5.5 / 캐릭터 그림(고래 사서): ChatGPT 이미지 생성. 참가자가 문제와 범위를 정하고 결과를 검수했습니다</td></tr>
+<tr><td>외부 API·서비스</td><td>없음(외부 AI API, 데이터 API 모두 부르지 않습니다. 평가용 키가 필요 없습니다)</td></tr>
+<tr><td>외부 데이터</td><td>없음. 묶음의 데이터는 제주데이터허브 공개 데이터 4종과 가상 데이터 3개입니다(<code>DATA_USE.md</code>)</td></tr>
+<tr><td>오픈소스·외부 코드</td><td>없음(Python 표준 라이브러리만 사용)</td></tr>
+<tr><td>데이터 API 키</td><td>쓰지 않으므로 제출물에 없습니다</td></tr>
+</table>
+<p>화면의 설명과 초안은 AI 에이전트가 만든 것입니다. 문서에 옮기기 전에 내용을 직접 확인해 주세요.</p>
+</body></html>

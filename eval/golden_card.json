@@ -1,0 +1,765 @@
+{
+ "title": "Evidence Mate golden (card data)",
+ "generated_by": "eval/make_golden_card.py",
+ "rules": "docs/build-blueprint.md rev 3 section 3.3",
+ "sources": {
+  "inputs/hub_card_by_biz_sex.csv": "518cd18e78141ede90cc5ee7639099282eae4c1557236e4eda6bd295b66e368d",
+  "samples/SYNTHETIC_card_emd_v02_202406.csv": "d96914b2e9e48c9b66bffb36da1c3bd101b4a99651a531e99fccebb4e1abc02e",
+  "samples/SYNTHETIC_card_emd_v02_202506.csv": "8c11533610d48204f9db66bdcfd444be73af68a21d62f7886d5d4bd6650ac825"
+ },
+ "items": [
+  {
+   "id": "H01",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "2025년 6월 한식 음식점업 카드 이용 현황을 알려 주세요",
+   "behavior": "summary",
+   "verdict": "none",
+   "expect": {
+    "month": "202506",
+    "biz": "한식 음식점업",
+    "bjd": null,
+    "groups": [
+     {
+      "group": "resident",
+      "rows": 3,
+      "users": 307322,
+      "uses": 331627,
+      "amount": 13235557519,
+      "amount_share_pct": "40.0"
+     },
+     {
+      "group": "domestic",
+      "rows": 3,
+      "users": 176443,
+      "uses": 185961,
+      "amount": 9035027156,
+      "amount_share_pct": "27.3"
+     },
+     {
+      "group": "foreign",
+      "rows": 4,
+      "users": 6370,
+      "uses": 6891,
+      "amount": 435252756,
+      "amount_share_pct": "1.3"
+     },
+     {
+      "group": "corporate",
+      "rows": 1,
+      "users": 120164,
+      "uses": 136439,
+      "amount": 10346899101,
+      "amount_share_pct": "31.3"
+     }
+    ],
+    "total": {
+     "users": 610299,
+     "uses": 660918,
+     "amount": 33052736532
+    },
+    "export": {
+     "applied": false,
+     "masked_groups": [],
+     "totals_hidden": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H02",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "한식 음식점업은 내국인 관광객이 도민보다 카드를 더 많이 썼다",
+   "behavior": "claim_check",
+   "verdict": "revise",
+   "expect": {
+    "month": "202506",
+    "biz": "한식 음식점업",
+    "bjd": null,
+    "measure": "amount",
+    "a": {
+     "group": "domestic",
+     "value": 9035027156
+    },
+    "b": {
+     "group": "resident",
+     "value": 13235557519
+    },
+    "diff": -4200530363,
+    "pct_vs_b": "-31.7",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": "month defaults to the latest month in the file"
+  },
+  {
+   "id": "H03",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "자동차 임대업은 내국인 관광객이 도민보다 이용금액이 많다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "biz": "자동차 임대업",
+    "bjd": null,
+    "measure": "amount",
+    "a": {
+     "group": "domestic",
+     "value": 549125491
+    },
+    "b": {
+     "group": "resident",
+     "value": 43063815
+    },
+    "diff": 506061676,
+    "pct_vs_b": "1175.1",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H04",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "호텔업은 외국인이 내국인 관광객보다 많이 썼다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "biz": "호텔업",
+    "bjd": null,
+    "measure": "amount",
+    "a": {
+     "group": "foreign",
+     "value": 2406564231
+    },
+    "b": {
+     "group": "domestic",
+     "value": 881044899
+    },
+    "diff": 1525519332,
+    "pct_vs_b": "173.1",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H05",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "한식당은 관광객이 도민보다 많이 쓴다",
+   "behavior": "ask_scope",
+   "verdict": "none",
+   "expect": {
+    "slot": "group",
+    "choices": [
+     "내국인 관광객",
+     "외국인",
+     "관광객 전체"
+    ]
+   },
+   "note": "'관광객' alone is ambiguous; '한식당' is an alias of 한식 음식점업"
+  },
+  {
+   "id": "H06",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "면세점 카드 이용금액이 작년 같은 달보다 늘었다",
+   "behavior": "claim_check",
+   "verdict": "revise",
+   "expect": {
+    "month": "202506",
+    "prev_month": "202406",
+    "biz": "면세점",
+    "bjd": null,
+    "group": "all",
+    "measure": "amount",
+    "current": 5668912848,
+    "previous": 7564476998,
+    "diff": -1895564150,
+    "pct": "-25.1",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H07",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "2025년 6월 체인화 편의점 카드 이용금액은 작년 같은 달보다 늘었다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "prev_month": "202406",
+    "biz": "체인화 편의점",
+    "bjd": null,
+    "group": "all",
+    "measure": "amount",
+    "current": 9606427195,
+    "previous": 9459856842,
+    "diff": 146570353,
+    "pct": "1.5",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H08",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "2025년 6월 카드 이용금액이 가장 큰 업종은 한식 음식점업이다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "group": "all",
+    "measure": "amount",
+    "top": [
+     {
+      "rank": 1,
+      "biz": "한식 음식점업",
+      "value": 33052736532
+     },
+     {
+      "rank": 2,
+      "biz": "슈퍼마켓",
+      "value": 13866558844
+     },
+     {
+      "rank": 3,
+      "biz": "차량용 주유소 운영업",
+      "value": 11170142738
+     },
+     {
+      "rank": 4,
+      "biz": "체인화 편의점",
+      "value": 9606427195
+     },
+     {
+      "rank": 5,
+      "biz": "여관업",
+      "value": 7259420777
+     }
+    ],
+    "asked": {
+     "biz": "한식 음식점업",
+     "rank": 1
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H09",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "2025년 6월 카드 이용금액 1위 업종은 호텔업이다",
+   "behavior": "claim_check",
+   "verdict": "revise",
+   "expect": {
+    "month": "202506",
+    "group": "all",
+    "measure": "amount",
+    "top": [
+     {
+      "rank": 1,
+      "biz": "한식 음식점업",
+      "value": 33052736532
+     },
+     {
+      "rank": 2,
+      "biz": "슈퍼마켓",
+      "value": 13866558844
+     },
+     {
+      "rank": 3,
+      "biz": "차량용 주유소 운영업",
+      "value": 11170142738
+     },
+     {
+      "rank": 4,
+      "biz": "체인화 편의점",
+      "value": 9606427195
+     },
+     {
+      "rank": 5,
+      "biz": "여관업",
+      "value": 7259420777
+     }
+    ],
+    "asked": {
+     "biz": "호텔업",
+     "rank": 6
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H10",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "노형동 한식 음식점업 카드 이용금액을 알려 주세요",
+   "behavior": "need_file",
+   "verdict": "none",
+   "expect": {
+    "missing": "region",
+    "dataset": "카드 이용 현황(읍면동)_v02",
+    "month": null
+   },
+   "note": "the public file has no region column"
+  },
+  {
+   "id": "H11",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "2025년 9월 한식 음식점업 카드 이용 현황",
+   "behavior": "need_file",
+   "verdict": "none",
+   "expect": {
+    "missing": "month",
+    "dataset": null,
+    "month": "202509"
+   },
+   "note": "the loaded file ends at 202506"
+  },
+  {
+   "id": "H12",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "한식 음식점업 전체 매출은 얼마인가요",
+   "behavior": "cannot",
+   "verdict": "none",
+   "expect": {
+    "limit": "total_market"
+   },
+   "note": ""
+  },
+  {
+   "id": "H13",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "면세점 카드 이용금액은 왜 줄었나요",
+   "behavior": "cannot",
+   "verdict": "none",
+   "expect": {
+    "limit": "cause"
+   },
+   "note": ""
+  },
+  {
+   "id": "H14",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "내년에 호텔업 카드 이용금액이 늘까요",
+   "behavior": "cannot",
+   "verdict": "none",
+   "expect": {
+    "limit": "forecast"
+   },
+   "note": ""
+  },
+  {
+   "id": "H15",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "제주에 한식 음식점이 몇 곳인가요",
+   "behavior": "cannot",
+   "verdict": "none",
+   "expect": {
+    "limit": "store_count"
+   },
+   "note": ""
+  },
+  {
+   "id": "H16",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "식당 카드 이용 현황을 알려 주세요",
+   "behavior": "ask_scope",
+   "verdict": "none",
+   "expect": {
+    "slot": "biz",
+    "choices": [
+     "한식 음식점업",
+     "중식 음식점업",
+     "일식 음식점업",
+     "서양식 음식점업",
+     "기타 외국식 음식점업",
+     "피자 햄버거 샌드위치 및 유사 음식점업"
+    ]
+   },
+   "note": ""
+  },
+  {
+   "id": "H17",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "비알콜 음료점업 이용건수는 도민이 내국인 관광객보다 많다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "biz": "비알콜 음료점업",
+    "bjd": null,
+    "measure": "uses",
+    "a": {
+     "group": "resident",
+     "value": 150689
+    },
+    "b": {
+     "group": "domestic",
+     "value": 45889
+    },
+    "diff": 104800,
+    "pct_vs_b": "228.4",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H18",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "2024년 6월 골프장 운영업은 법인이 도민보다 많이 썼다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202406",
+    "biz": "골프장 운영업",
+    "bjd": null,
+    "measure": "amount",
+    "a": {
+     "group": "corporate",
+     "value": 3297271048
+    },
+    "b": {
+     "group": "resident",
+     "value": 1337320710
+    },
+    "diff": 1959950338,
+    "pct_vs_b": "146.6",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "H19",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "슈퍼마켓 이용자 수는 도민이 내국인 관광객보다 많다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "biz": "슈퍼마켓",
+    "bjd": null,
+    "measure": "users",
+    "a": {
+     "group": "resident",
+     "value": 285762
+    },
+    "b": {
+     "group": "domestic",
+     "value": 37581
+    },
+    "diff": 248181,
+    "pct_vs_b": "660.4",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": "measure users: notice users_not_unique is required"
+  },
+  {
+   "id": "H20",
+   "files": [
+    "inputs/hub_card_by_biz_sex.csv"
+   ],
+   "question": "한식 음식점업의 도민 카드 이용금액은 작년 같은 달보다 줄었다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "prev_month": "202406",
+    "biz": "한식 음식점업",
+    "bjd": null,
+    "group": "resident",
+    "measure": "amount",
+    "current": 13235557519,
+    "previous": 13538313818,
+    "diff": -302756299,
+    "pct": "-2.2",
+    "export": {
+     "applied": false,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "C01",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "question": "노형동 한식 음식점업 카드 이용 현황을 알려 주세요",
+   "behavior": "summary",
+   "verdict": "none",
+   "expect": {
+    "month": "202506",
+    "biz": "한식 음식점업",
+    "bjd": "노형동",
+    "groups": [
+     {
+      "group": "resident",
+      "rows": 10,
+      "users": 434,
+      "uses": 509,
+      "amount": 13474490,
+      "amount_share_pct": "54.5"
+     },
+     {
+      "group": "domestic",
+      "rows": 20,
+      "users": 305,
+      "uses": 365,
+      "amount": 8262948,
+      "amount_share_pct": "33.4"
+     },
+     {
+      "group": "foreign",
+      "rows": 2,
+      "users": 22,
+      "uses": 22,
+      "amount": 548980,
+      "amount_share_pct": "2.2"
+     },
+     {
+      "group": "corporate",
+      "rows": 1,
+      "users": 231,
+      "uses": 266,
+      "amount": 2459702,
+      "amount_share_pct": "9.9"
+     }
+    ],
+    "total": {
+     "users": 992,
+     "uses": 1162,
+     "amount": 24746120
+    },
+    "export": {
+     "applied": true,
+     "masked_groups": [],
+     "totals_hidden": false
+    }
+   },
+   "note": "center format: export pre-check on"
+  },
+  {
+   "id": "C02",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "question": "성산읍 스포츠 및 레크레이션 용품 임대업 카드 이용 현황",
+   "behavior": "summary",
+   "verdict": "none",
+   "expect": {
+    "month": "202506",
+    "biz": "스포츠 및 레크레이션 용품 임대업",
+    "bjd": "성산읍",
+    "groups": [
+     {
+      "group": "resident",
+      "rows": 4,
+      "users": null,
+      "uses": null,
+      "amount": null,
+      "amount_share_pct": null,
+      "masked": true
+     },
+     {
+      "group": "domestic",
+      "rows": 12,
+      "users": 12,
+      "uses": 12,
+      "amount": 294861,
+      "amount_share_pct": null
+     },
+     {
+      "group": "foreign",
+      "rows": 2,
+      "users": null,
+      "uses": null,
+      "amount": null,
+      "amount_share_pct": null,
+      "masked": true
+     },
+     {
+      "group": "corporate",
+      "rows": 1,
+      "users": null,
+      "uses": null,
+      "amount": null,
+      "amount_share_pct": null,
+      "masked": true
+     }
+    ],
+    "total": null,
+    "export": {
+     "applied": true,
+     "masked_groups": [
+      "resident",
+      "foreign",
+      "corporate"
+     ],
+     "totals_hidden": true
+    }
+   },
+   "note": "small cells must be masked and totals hidden"
+  },
+  {
+   "id": "C03",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "question": "노형동 한식 음식점업은 내국인 관광객이 도민보다 많이 썼다",
+   "behavior": "claim_check",
+   "verdict": "revise",
+   "expect": {
+    "month": "202506",
+    "biz": "한식 음식점업",
+    "bjd": "노형동",
+    "measure": "amount",
+    "a": {
+     "group": "domestic",
+     "value": 8262948
+    },
+    "b": {
+     "group": "resident",
+     "value": 13474490
+    },
+    "diff": -5211542,
+    "pct_vs_b": "-38.7",
+    "export": {
+     "applied": true,
+     "masked": false
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "C04",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "question": "한림읍 체인화 편의점 카드 이용금액이 작년 같은 달보다 늘었다",
+   "behavior": "need_file",
+   "verdict": "none",
+   "expect": {
+    "missing": "month",
+    "dataset": "카드 이용 현황(읍면동)_v02",
+    "month": "202406"
+   },
+   "note": "only 202506 is loaded"
+  },
+  {
+   "id": "C05",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202406.csv",
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "question": "한림읍 체인화 편의점 카드 이용금액이 작년 같은 달보다 늘었다",
+   "behavior": "claim_check",
+   "verdict": "supported",
+   "expect": {
+    "month": "202506",
+    "prev_month": "202406",
+    "biz": "체인화 편의점",
+    "bjd": "한림읍",
+    "group": "all",
+    "measure": "amount",
+    "current": 4242807,
+    "previous": 4091420,
+    "diff": 151387,
+    "pct": "3.7",
+    "export": {
+     "applied": true,
+     "masked": false
+    }
+   },
+   "note": "both months loaded"
+  },
+  {
+   "id": "C06",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "question": "대정읍 일식 음식점업 이용자 수는 외국인이 도민보다 많다",
+   "behavior": "claim_check",
+   "verdict": "none",
+   "expect": {
+    "month": "202506",
+    "biz": "일식 음식점업",
+    "bjd": "대정읍",
+    "measure": "users",
+    "a": {
+     "group": "foreign",
+     "value": null
+    },
+    "b": {
+     "group": "resident",
+     "value": null
+    },
+    "diff": null,
+    "pct_vs_b": null,
+    "export": {
+     "applied": true,
+     "masked": true
+    }
+   },
+   "note": ""
+  }
+ ]
+}

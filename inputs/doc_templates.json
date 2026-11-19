@@ -1,0 +1,189 @@
+{
+ "note": "Aside-owned. Document templates of the Evidence Mate. Titles and guidance in 'form_cells' are quoted from real public forms (checked 2026-11-19); 'blocks' are the agent's drafts for those cells. The drafts are modelled on these forms; they are not official forms themselves.",
+ "templates": {
+  "bizplan_market": {
+   "label": "사업계획서: 시장·고객 현황 칸",
+   "modelled_on": [
+    {
+     "form": "2026년 예비창업패키지 사업계획서 양식 [별첨 1] (창업진흥원, 공고 제2026-207호)",
+     "source": "K-Startup 사업공고 첨부(공공누리 제1유형, 로그인 없이 공개)",
+     "url": "https://www.k-startup.go.kr/web/contents/bizpbanc-deadline.do?pbancClssCd=PBC010&schM=view&pbancSn=176458",
+     "form_cells": [
+      {
+       "cell": "1. 문제 인식 (Problem)_창업 아이템의 필요성",
+       "guidance": "개발하고자 하는 창업 아이템의 국내·외 시장 현황 및 문제점 등의 제시",
+       "blocks": [
+        "size",
+        "yoy",
+        "mix"
+       ]
+      },
+      {
+       "cell": "3. 성장전략 (Scale-up)_사업화 추진 전략",
+       "guidance": "경쟁제품·경쟁사 분석, 창업 아이템의 목표 시장 진입 전략 등 기재",
+       "blocks": [
+        "mix",
+        "sex_age",
+        "season",
+        "context",
+        "local"
+       ]
+      }
+     ],
+     "limits": "사업계획서는 목차(1페이지)를 제외하고 10페이지 이내로 작성. 추가설명을 위한 이미지(사진), 표 등은 삽입 가능"
+    },
+    {
+     "form": "신사업창업사관학교 사업계획서 서식(소상공인시장진흥공단, 2025년 공고 붙임6-1)",
+     "source": "기업마당 공고 첨부(로그인 없이 공개)",
+     "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000104479",
+     "form_cells": [
+      {
+       "cell": "1-3. 창업아이템의 목표시장 분석",
+       "guidance": "진출하려는 목표시장의 규모·상황 및 특성, 경쟁 강도, 향후 전망(성장성), 고객 특성 등 기재",
+       "blocks": [
+        "size",
+        "yoy",
+        "mix",
+        "sex_age",
+        "season"
+       ],
+       "cannot_fill": [
+        {
+         "item": "경쟁 강도",
+         "why": "카드 이용 자료에는 점포 수가 없습니다",
+         "need": "제주빅데이터센터 '제주도 내 업종별 매장 수'"
+        },
+        {
+         "item": "향후 전망",
+         "why": "이 메이트는 예측하지 않고 지난 추이까지만 적습니다",
+         "need": null
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "blocks": [
+    {
+     "id": "size",
+     "title": "시장 규모와 추이",
+     "table": "최근 12개월 월별 카드 이용금액"
+    },
+    {
+     "id": "yoy",
+     "title": "전년 동월 대비",
+     "table": null
+    },
+    {
+     "id": "mix",
+     "title": "고객 구성(도민·내국인 관광객·외국인·법인)",
+     "table": "12개월 이용금액 비중"
+    },
+    {
+     "id": "sex_age",
+     "title": "성별·연령 구성",
+     "table": "최근 4개 분기 이용금액 비중"
+    },
+    {
+     "id": "season",
+     "title": "계절성",
+     "table": null
+    },
+    {
+     "id": "context",
+     "title": "요일·시간대 참고(제주 전체, 업종 구분 없음)",
+     "table": "요일별 이용건수 비중, 시간대별 이용금액 비중"
+    },
+    {
+     "id": "local",
+     "title": "지역 상세(센터 자료를 넣었을 때)",
+     "table": "읍면동 이용자 구분별 표(반출 사전 점검 적용)"
+    }
+   ],
+   "footnotes": [
+    "비씨카드 결제분만 집계한 자료라 업종 전체 매출이 아닙니다.",
+    "요일·시간대 값은 제주 전체 값이며 이 업종만의 값이 아닙니다.",
+    "출처: 제주데이터허브(제공처 제주빅데이터센터), 각 표의 자료 이름과 기간을 함께 적습니다."
+   ]
+  },
+  "consumption_trend": {
+   "label": "현황자료: 월간 소비동향",
+   "modelled_on": [
+    {
+     "form": "(제주특별자치도) 2026년 9월 제주도 주요 소비동향 분석, 187차(제주특별자치도 AI혁신추진단 AI데이터팀, BC카드 결제데이터, 12쪽)",
+     "source": "제주데이터허브 리포트 > 정기리포트(로그인 없이 공개, '해당 리포트 사용 시 출처를 반드시 밝혀주세요')",
+     "url": "https://jejudatahub.net/report/serial/view/95",
+     "form_cells": [
+      {
+       "cell": "표지",
+       "guidance": "분석 주체, 분석 목적, 분석 활용 데이터, 분석 범위, 분석 방법, 데이터기준일, 분석 및 Report 작성 기간",
+       "blocks": [
+        "cover"
+       ]
+      },
+      {
+       "cell": "[제주도 전체] 전체 및 1인당 1일 평균 카드이용금액(BC) 비교",
+       "guidance": "금월·전월·전년 동기 막대와 '전월 대비 …% 감소, 전년 동기 대비 …% 증가' 요약",
+       "blocks": [
+        "headline"
+       ]
+      },
+      {
+       "cell": "[제주도 전체] 전월 대비 주요 업종별 카드이용금액(BC) 비교",
+       "guidance": "업종별 증감률과 '차트 대상 n개 업종 중 증가 a개, 감소 b개'",
+       "blocks": [
+        "biz_mom"
+       ]
+      },
+      {
+       "cell": "[제주도 전체] 전년 동기 대비 주요 업종별 카드이용금액(BC) 비교",
+       "guidance": "업종별 증감률",
+       "blocks": [
+        "biz_yoy"
+       ]
+      },
+      {
+       "cell": "[국내관광객], [중국관광객] 장",
+       "guidance": "고객군별로 같은 세 쪽",
+       "blocks": [
+        "headline",
+        "biz_mom",
+        "biz_yoy"
+       ]
+      }
+     ],
+     "differences": [
+      "원 보고서의 '1인당 1일 평균 카드이용금액'은 산식이 공개돼 있지 않아 쓰지 않고, 건당 이용금액(이용금액 ÷ 이용건수)을 대신 적습니다.",
+      "공개 자료는 2025년 6월까지라 그 뒤의 달은 센터 자료가 필요합니다."
+     ]
+    }
+   ],
+   "blocks": [
+    {
+     "id": "cover",
+     "title": "표지 정보",
+     "user_fields": [
+      "분석 주체",
+      "분석 목적"
+     ]
+    },
+    {
+     "id": "headline",
+     "title": "전체 카드 이용금액 비교(금월·전월·전년 동기)"
+    },
+    {
+     "id": "biz_mom",
+     "title": "전월 대비 주요 업종별 증감"
+    },
+    {
+     "id": "biz_yoy",
+     "title": "전년 동기 대비 주요 업종별 증감"
+    }
+   ],
+   "footnotes": [
+    "※ 집계된 이용금액은 BC카드 수록 자료 내 소비 규모와 증감 추이를 파악하기 위한 지표임.",
+    "* 일수 보정 없이 산출함."
+   ]
+  }
+ }
+}

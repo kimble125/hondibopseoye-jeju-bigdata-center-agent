@@ -1,0 +1,1596 @@
+{
+ "title": "Evidence Mate golden (documents)",
+ "generated_by": "eval/make_golden_docs.py",
+ "rules": "docs/build-blueprint-rev3.md section 10",
+ "sources": {
+  "inputs/hub_card_by_biz_sex.csv": "518cd18e78141ede90cc5ee7639099282eae4c1557236e4eda6bd295b66e368d",
+  "inputs/hub_card_by_biz_sex_age_quarter.csv": "717b29a1f384b7b58eb64e901b96dc88d02ba100e193f4cbb87dfdff5d122ccc",
+  "inputs/hub_card_by_weekday.csv": "7549728c3e5fe45ec62721f564fa92e80193e7b62fd54eeff8bdcec141b90bbc",
+  "inputs/hub_card_by_time.csv": "5e9103d29615273c7a7fcfa627c408d82c00594b3f52adbe0328c175d860f1ad",
+  "samples/SYNTHETIC_card_emd_v02_202506.csv": "8c11533610d48204f9db66bdcfd444be73af68a21d62f7886d5d4bd6650ac825",
+  "samples/SYNTHETIC_bus_station_usage_202611.csv": "8cb95ab7f70f4ee093cab6c5b83f4da99f0b974f39ec9948851603278cf4208a",
+  "inputs/report_catalog.json": "81acb2909f9ac46b69cb28cb2f3580c41c1a498faac2a5bb25870116ac578c9a"
+ },
+ "items": [
+  {
+   "id": "D01",
+   "files": [],
+   "request": "2025년 6월 소비동향 현황자료를 만들어 주세요",
+   "template": "consumption_trend",
+   "params": {
+    "month": "202506",
+    "group": "all"
+   },
+   "expect": {
+    "month": "202506",
+    "prev_month": "202505",
+    "yoy_month": "202406",
+    "group": "all",
+    "headline": {
+     "amount": {
+      "current": 146532204795,
+      "previous": 156087115018,
+      "year_ago": 154102782619
+     },
+     "pct_mom": "-6.12",
+     "pct_yoy": "-4.91",
+     "uses": {
+      "current": 3734611,
+      "previous": 3822003,
+      "year_ago": 3943532
+     },
+     "per_use": {
+      "current": 39236,
+      "previous": 40839,
+      "year_ago": 39077
+     }
+    },
+    "biz_mom": {
+     "n_biz": 41,
+     "increase_count": 8,
+     "decrease_count": 33,
+     "flat_count": 0,
+     "top_up": [
+      {
+       "biz": "기타 갬블링 및 베팅업",
+       "pct": "687.36",
+       "current": 233845000,
+       "previous": 29700000
+      },
+      {
+       "biz": "택시 운송업",
+       "pct": "313.48",
+       "current": 4285100,
+       "previous": 1036340
+      },
+      {
+       "biz": "기타 수상오락 서비스업",
+       "pct": "43.39",
+       "current": 13797100,
+       "previous": 9622100
+      },
+      {
+       "biz": "마사지업",
+       "pct": "15.80",
+       "current": 38258500,
+       "previous": 33038500
+      },
+      {
+       "biz": "화장품 및 방향제 소매업",
+       "pct": "13.61",
+       "current": 2886691676,
+       "previous": 2540987313
+      }
+     ],
+     "top_down": [
+      {
+       "biz": "그외 기타 분류안된 오락관련 서비스업",
+       "pct": "-48.23",
+       "current": 2465400,
+       "previous": 4762600
+      },
+      {
+       "biz": "건강보조식품 소매업",
+       "pct": "-35.42",
+       "current": 759892763,
+       "previous": 1176616640
+      },
+      {
+       "biz": "전시 및 행사 대행업",
+       "pct": "-32.69",
+       "current": 1532422700,
+       "previous": 2276495214
+      },
+      {
+       "biz": "그외 기타 스포츠시설 운영업",
+       "pct": "-28.48",
+       "current": 83120650,
+       "previous": 116217700
+      },
+      {
+       "biz": "차량용 가스 충전업",
+       "pct": "-24.03",
+       "current": 675007692,
+       "previous": 888475984
+      }
+     ]
+    },
+    "biz_yoy": {
+     "n_biz": 41,
+     "increase_count": 15,
+     "decrease_count": 26,
+     "flat_count": 0,
+     "top_up": [
+      {
+       "biz": "택시 운송업",
+       "pct": "241.52",
+       "current": 4285100,
+       "previous": 1254700
+      },
+      {
+       "biz": "기타 갬블링 및 베팅업",
+       "pct": "48.13",
+       "current": 233845000,
+       "previous": 157860000
+      },
+      {
+       "biz": "마사지업",
+       "pct": "24.99",
+       "current": 38258500,
+       "previous": 30608530
+      },
+      {
+       "biz": "화장품 및 방향제 소매업",
+       "pct": "17.85",
+       "current": 2886691676,
+       "previous": 2449435518
+      },
+      {
+       "biz": "휴양콘도 운영업",
+       "pct": "15.27",
+       "current": 2042373287,
+       "previous": 1771848574
+      }
+     ],
+     "top_down": [
+      {
+       "biz": "건강보조식품 소매업",
+       "pct": "-46.62",
+       "current": 759892763,
+       "previous": 1423449460
+      },
+      {
+       "biz": "정기 항공 운송업",
+       "pct": "-29.18",
+       "current": 2582127178,
+       "previous": 3646281191
+      },
+      {
+       "biz": "면세점",
+       "pct": "-25.06",
+       "current": 5668912848,
+       "previous": 7564476998
+      },
+      {
+       "biz": "일반유흥 주점업",
+       "pct": "-20.47",
+       "current": 1411764022,
+       "previous": 1775101911
+      },
+      {
+       "biz": "기타 대형 종합 소매업",
+       "pct": "-20.02",
+       "current": 3507640650,
+       "previous": 4385378480
+      }
+     ]
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "D02",
+   "files": [],
+   "request": "2025년 6월 내국인 관광객 소비동향 현황자료를 만들어 주세요",
+   "template": "consumption_trend",
+   "params": {
+    "month": "202506",
+    "group": "domestic"
+   },
+   "expect": {
+    "month": "202506",
+    "prev_month": "202505",
+    "yoy_month": "202406",
+    "group": "domestic",
+    "headline": {
+     "amount": {
+      "current": 34850777799,
+      "previous": 37539594736,
+      "year_ago": 41956548349
+     },
+     "pct_mom": "-7.16",
+     "pct_yoy": "-16.94",
+     "uses": {
+      "current": 961141,
+      "previous": 1000931,
+      "year_ago": 1101121
+     },
+     "per_use": {
+      "current": 36260,
+      "previous": 37505,
+      "year_ago": 38103
+     }
+    },
+    "biz_mom": {
+     "n_biz": 40,
+     "increase_count": 10,
+     "decrease_count": 30,
+     "flat_count": 0,
+     "top_up": [
+      {
+       "biz": "택시 운송업",
+       "pct": "81.97",
+       "current": 71880,
+       "previous": 39500
+      },
+      {
+       "biz": "마사지업",
+       "pct": "30.19",
+       "current": 10748500,
+       "previous": 8256000
+      },
+      {
+       "biz": "기타 수상오락 서비스업",
+       "pct": "12.23",
+       "current": 6387800,
+       "previous": 5691900
+      },
+      {
+       "biz": "기타 주점업",
+       "pct": "10.30",
+       "current": 81921200,
+       "previous": 74272110
+      },
+      {
+       "biz": "차량용 가스 충전업",
+       "pct": "6.74",
+       "current": 43404556,
+       "previous": 40662529
+      }
+     ],
+     "top_down": [
+      {
+       "biz": "그외 기타 분류안된 오락관련 서비스업",
+       "pct": "-40.66",
+       "current": 2088400,
+       "previous": 3519600
+      },
+      {
+       "biz": "그외 기타 스포츠시설 운영업",
+       "pct": "-28.38",
+       "current": 33525700,
+       "previous": 46811800
+      },
+      {
+       "biz": "여행사업",
+       "pct": "-22.76",
+       "current": 122526833,
+       "previous": 158632850
+      },
+      {
+       "biz": "정기 항공 운송업",
+       "pct": "-18.33",
+       "current": 1799882120,
+       "previous": 2203934243
+      },
+      {
+       "biz": "전시 및 행사 대행업",
+       "pct": "-18.22",
+       "current": 639953700,
+       "previous": 782526389
+      }
+     ]
+    },
+    "biz_yoy": {
+     "n_biz": 40,
+     "increase_count": 5,
+     "decrease_count": 35,
+     "flat_count": 0,
+     "top_up": [
+      {
+       "biz": "택시 운송업",
+       "pct": "174.35",
+       "current": 71880,
+       "previous": 26200
+      },
+      {
+       "biz": "마사지업",
+       "pct": "86.25",
+       "current": 10748500,
+       "previous": 5771000
+      },
+      {
+       "biz": "화장품 및 방향제 소매업",
+       "pct": "26.04",
+       "current": 103104110,
+       "previous": 81805930
+      },
+      {
+       "biz": "기타 주점업",
+       "pct": "9.70",
+       "current": 81921200,
+       "previous": 74675500
+      },
+      {
+       "biz": "기타 수상오락 서비스업",
+       "pct": "1.55",
+       "current": 6387800,
+       "previous": 6290200
+      }
+     ],
+     "top_down": [
+      {
+       "biz": "여행사업",
+       "pct": "-50.90",
+       "current": 122526833,
+       "previous": 249538150
+      },
+      {
+       "biz": "일반유흥 주점업",
+       "pct": "-38.52",
+       "current": 168507580,
+       "previous": 274088952
+      },
+      {
+       "biz": "차량용 주유소 운영업",
+       "pct": "-35.75",
+       "current": 1363686477,
+       "previous": 2122598292
+      },
+      {
+       "biz": "기타 외국식 음식점업",
+       "pct": "-35.27",
+       "current": 86718559,
+       "previous": 133964659
+      },
+      {
+       "biz": "휴양콘도 운영업",
+       "pct": "-32.82",
+       "current": 494067635,
+       "previous": 735400326
+      }
+     ]
+    }
+   },
+   "note": ""
+  },
+  {
+   "id": "D03",
+   "files": [],
+   "request": "한식 음식점업으로 사업계획서 시장 현황을 써 주세요",
+   "template": "bizplan_market",
+   "params": {
+    "biz": "한식 음식점업"
+   },
+   "expect": {
+    "biz": "한식 음식점업",
+    "month": "202506",
+    "window": {
+     "start": "202407",
+     "end": "202506"
+    },
+    "size": {
+     "amount_12m": 383724237415,
+     "monthly_avg": 31977019785,
+     "prev_amount_12m": 409629935352,
+     "pct_12m": "-6.3"
+    },
+    "series": [
+     {
+      "month": "202407",
+      "amount": 32510330072
+     },
+     {
+      "month": "202408",
+      "amount": 36546945720
+     },
+     {
+      "month": "202409",
+      "amount": 32056144016
+     },
+     {
+      "month": "202410",
+      "amount": 33314232664
+     },
+     {
+      "month": "202411",
+      "amount": 31426611991
+     },
+     {
+      "month": "202412",
+      "amount": 31075072223
+     },
+     {
+      "month": "202501",
+      "amount": 29916422552
+     },
+     {
+      "month": "202502",
+      "amount": 27051530263
+     },
+     {
+      "month": "202503",
+      "amount": 30431641997
+     },
+     {
+      "month": "202504",
+      "amount": 32759291946
+     },
+     {
+      "month": "202505",
+      "amount": 33583277439
+     },
+     {
+      "month": "202506",
+      "amount": 33052736532
+     }
+    ],
+    "yoy": {
+     "current": 33052736532,
+     "previous": 32480652437,
+     "pct": "1.8"
+    },
+    "mix": [
+     {
+      "group": "resident",
+      "amount": 158641209077,
+      "share_pct": "41.3"
+     },
+     {
+      "group": "domestic",
+      "amount": 108477531707,
+      "share_pct": "28.3"
+     },
+     {
+      "group": "foreign",
+      "amount": 3695483885,
+      "share_pct": "1.0"
+     },
+     {
+      "group": "corporate",
+      "amount": 112910012746,
+      "share_pct": "29.4"
+     }
+    ],
+    "per_use": 50010,
+    "season": {
+     "max": {
+      "month": "202408",
+      "amount": 36546945720
+     },
+     "min": {
+      "month": "202502",
+      "amount": 27051530263
+     }
+    },
+    "sex_age": {
+     "quarters": [
+      "2024 3분기",
+      "2024 4분기",
+      "2025 1분기",
+      "2025 2분기"
+     ],
+     "by_age": [
+      {
+       "age": "10대",
+       "amount_million": 498,
+       "share_pct": "0.1"
+      },
+      {
+       "age": "20대",
+       "amount_million": 21225,
+       "share_pct": "5.5"
+      },
+      {
+       "age": "30대",
+       "amount_million": 43825,
+       "share_pct": "11.4"
+      },
+      {
+       "age": "40대",
+       "amount_million": 60100,
+       "share_pct": "15.7"
+      },
+      {
+       "age": "50대",
+       "amount_million": 74193,
+       "share_pct": "19.3"
+      },
+      {
+       "age": "60대",
+       "amount_million": 49074,
+       "share_pct": "12.8"
+      },
+      {
+       "age": "70대 이상",
+       "amount_million": 18207,
+       "share_pct": "4.7"
+      },
+      {
+       "age": "알수없음",
+       "amount_million": 116607,
+       "share_pct": "30.4"
+      }
+     ],
+     "by_sex": [
+      {
+       "sex": "남성",
+       "amount_million": 167158,
+       "share_pct": "43.6"
+      },
+      {
+       "sex": "여성",
+       "amount_million": 99683,
+       "share_pct": "26.0"
+      },
+      {
+       "sex": "알수없음",
+       "amount_million": 116888,
+       "share_pct": "30.5"
+      }
+     ]
+    },
+    "context": {
+     "weekday": {
+      "month": "202506",
+      "shares": [
+       {
+        "day": "월요일",
+        "uses": 494001,
+        "share_pct": "13.2"
+       },
+       {
+        "day": "화요일",
+        "uses": 513971,
+        "share_pct": "13.8"
+       },
+       {
+        "day": "수요일",
+        "uses": 522816,
+        "share_pct": "14.0"
+       },
+       {
+        "day": "목요일",
+        "uses": 525710,
+        "share_pct": "14.1"
+       },
+       {
+        "day": "금요일",
+        "uses": 530523,
+        "share_pct": "14.2"
+       },
+       {
+        "day": "토요일",
+        "uses": 533105,
+        "share_pct": "14.3"
+       },
+       {
+        "day": "일요일",
+        "uses": 614485,
+        "share_pct": "16.5"
+       },
+       {
+        "day": "공휴일",
+        "uses": 0,
+        "share_pct": "0.0"
+       }
+      ]
+     },
+     "time": {
+      "month": "202506",
+      "shares": [
+       {
+        "time": "오전",
+        "amount_million": 21858,
+        "share_pct": "15.1"
+       },
+       {
+        "time": "점심",
+        "amount_million": 35315,
+        "share_pct": "24.3"
+       },
+       {
+        "time": "오후",
+        "amount_million": 38122,
+        "share_pct": "26.3"
+       },
+       {
+        "time": "저녁",
+        "amount_million": 37771,
+        "share_pct": "26.0"
+       },
+       {
+        "time": "밤",
+        "amount_million": 12004,
+        "share_pct": "8.3"
+       }
+      ]
+     }
+    },
+    "local": null
+   },
+   "note": ""
+  },
+  {
+   "id": "D04",
+   "files": [],
+   "request": "렌터카 사업계획서에 넣을 시장 현황을 써 주세요",
+   "template": "bizplan_market",
+   "params": {
+    "biz": "자동차 임대업"
+   },
+   "expect": {
+    "biz": "자동차 임대업",
+    "month": "202506",
+    "window": {
+     "start": "202407",
+     "end": "202506"
+    },
+    "size": {
+     "amount_12m": 13378454590,
+     "monthly_avg": 1114871216,
+     "prev_amount_12m": 14830394734,
+     "pct_12m": "-9.8"
+    },
+    "series": [
+     {
+      "month": "202407",
+      "amount": 1300853833
+     },
+     {
+      "month": "202408",
+      "amount": 1490311054
+     },
+     {
+      "month": "202409",
+      "amount": 1111149161
+     },
+     {
+      "month": "202410",
+      "amount": 1097873925
+     },
+     {
+      "month": "202411",
+      "amount": 828572667
+     },
+     {
+      "month": "202412",
+      "amount": 1123557375
+     },
+     {
+      "month": "202501",
+      "amount": 1148485897
+     },
+     {
+      "month": "202502",
+      "amount": 803855082
+     },
+     {
+      "month": "202503",
+      "amount": 1027790226
+     },
+     {
+      "month": "202504",
+      "amount": 1025432979
+     },
+     {
+      "month": "202505",
+      "amount": 1317596575
+     },
+     {
+      "month": "202506",
+      "amount": 1102975816
+     }
+    ],
+    "yoy": {
+     "current": 1102975816,
+     "previous": 1089918289,
+     "pct": "1.2"
+    },
+    "mix": [
+     {
+      "group": "resident",
+      "amount": 497182725,
+      "share_pct": "3.7"
+     },
+     {
+      "group": "domestic",
+      "amount": 6389864982,
+      "share_pct": "47.8"
+     },
+     {
+      "group": "foreign",
+      "amount": 175311880,
+      "share_pct": "1.3"
+     },
+     {
+      "group": "corporate",
+      "amount": 6316095003,
+      "share_pct": "47.2"
+     }
+    ],
+    "per_use": 69439,
+    "season": {
+     "max": {
+      "month": "202408",
+      "amount": 1490311054
+     },
+     "min": {
+      "month": "202502",
+      "amount": 803855082
+     }
+    },
+    "sex_age": {
+     "quarters": [
+      "2024 3분기",
+      "2024 4분기",
+      "2025 1분기",
+      "2025 2분기"
+     ],
+     "by_age": [
+      {
+       "age": "10대",
+       "amount_million": 2,
+       "share_pct": "0.0"
+      },
+      {
+       "age": "20대",
+       "amount_million": 797,
+       "share_pct": "6.0"
+      },
+      {
+       "age": "30대",
+       "amount_million": 1517,
+       "share_pct": "11.3"
+      },
+      {
+       "age": "40대",
+       "amount_million": 1720,
+       "share_pct": "12.9"
+      },
+      {
+       "age": "50대",
+       "amount_million": 1685,
+       "share_pct": "12.6"
+      },
+      {
+       "age": "60대",
+       "amount_million": 921,
+       "share_pct": "6.9"
+      },
+      {
+       "age": "70대 이상",
+       "amount_million": 245,
+       "share_pct": "1.8"
+      },
+      {
+       "age": "알수없음",
+       "amount_million": 6491,
+       "share_pct": "48.5"
+      }
+     ],
+     "by_sex": [
+      {
+       "sex": "남성",
+       "amount_million": 4297,
+       "share_pct": "32.1"
+      },
+      {
+       "sex": "여성",
+       "amount_million": 2580,
+       "share_pct": "19.3"
+      },
+      {
+       "sex": "알수없음",
+       "amount_million": 6501,
+       "share_pct": "48.6"
+      }
+     ]
+    },
+    "context": {
+     "weekday": {
+      "month": "202506",
+      "shares": [
+       {
+        "day": "월요일",
+        "uses": 494001,
+        "share_pct": "13.2"
+       },
+       {
+        "day": "화요일",
+        "uses": 513971,
+        "share_pct": "13.8"
+       },
+       {
+        "day": "수요일",
+        "uses": 522816,
+        "share_pct": "14.0"
+       },
+       {
+        "day": "목요일",
+        "uses": 525710,
+        "share_pct": "14.1"
+       },
+       {
+        "day": "금요일",
+        "uses": 530523,
+        "share_pct": "14.2"
+       },
+       {
+        "day": "토요일",
+        "uses": 533105,
+        "share_pct": "14.3"
+       },
+       {
+        "day": "일요일",
+        "uses": 614485,
+        "share_pct": "16.5"
+       },
+       {
+        "day": "공휴일",
+        "uses": 0,
+        "share_pct": "0.0"
+       }
+      ]
+     },
+     "time": {
+      "month": "202506",
+      "shares": [
+       {
+        "time": "오전",
+        "amount_million": 21858,
+        "share_pct": "15.1"
+       },
+       {
+        "time": "점심",
+        "amount_million": 35315,
+        "share_pct": "24.3"
+       },
+       {
+        "time": "오후",
+        "amount_million": 38122,
+        "share_pct": "26.3"
+       },
+       {
+        "time": "저녁",
+        "amount_million": 37771,
+        "share_pct": "26.0"
+       },
+       {
+        "time": "밤",
+        "amount_million": 12004,
+        "share_pct": "8.3"
+       }
+      ]
+     }
+    },
+    "local": null
+   },
+   "note": "alias 렌터카"
+  },
+  {
+   "id": "D05",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "request": "노형동 한식 음식점업 사업계획서 시장 현황을 써 주세요",
+   "template": "bizplan_market",
+   "params": {
+    "biz": "한식 음식점업",
+    "bjd": "노형동"
+   },
+   "expect": {
+    "biz": "한식 음식점업",
+    "month": "202506",
+    "window": {
+     "start": "202407",
+     "end": "202506"
+    },
+    "size": {
+     "amount_12m": 383724237415,
+     "monthly_avg": 31977019785,
+     "prev_amount_12m": 409629935352,
+     "pct_12m": "-6.3"
+    },
+    "series": [
+     {
+      "month": "202407",
+      "amount": 32510330072
+     },
+     {
+      "month": "202408",
+      "amount": 36546945720
+     },
+     {
+      "month": "202409",
+      "amount": 32056144016
+     },
+     {
+      "month": "202410",
+      "amount": 33314232664
+     },
+     {
+      "month": "202411",
+      "amount": 31426611991
+     },
+     {
+      "month": "202412",
+      "amount": 31075072223
+     },
+     {
+      "month": "202501",
+      "amount": 29916422552
+     },
+     {
+      "month": "202502",
+      "amount": 27051530263
+     },
+     {
+      "month": "202503",
+      "amount": 30431641997
+     },
+     {
+      "month": "202504",
+      "amount": 32759291946
+     },
+     {
+      "month": "202505",
+      "amount": 33583277439
+     },
+     {
+      "month": "202506",
+      "amount": 33052736532
+     }
+    ],
+    "yoy": {
+     "current": 33052736532,
+     "previous": 32480652437,
+     "pct": "1.8"
+    },
+    "mix": [
+     {
+      "group": "resident",
+      "amount": 158641209077,
+      "share_pct": "41.3"
+     },
+     {
+      "group": "domestic",
+      "amount": 108477531707,
+      "share_pct": "28.3"
+     },
+     {
+      "group": "foreign",
+      "amount": 3695483885,
+      "share_pct": "1.0"
+     },
+     {
+      "group": "corporate",
+      "amount": 112910012746,
+      "share_pct": "29.4"
+     }
+    ],
+    "per_use": 50010,
+    "season": {
+     "max": {
+      "month": "202408",
+      "amount": 36546945720
+     },
+     "min": {
+      "month": "202502",
+      "amount": 27051530263
+     }
+    },
+    "sex_age": {
+     "quarters": [
+      "2024 3분기",
+      "2024 4분기",
+      "2025 1분기",
+      "2025 2분기"
+     ],
+     "by_age": [
+      {
+       "age": "10대",
+       "amount_million": 498,
+       "share_pct": "0.1"
+      },
+      {
+       "age": "20대",
+       "amount_million": 21225,
+       "share_pct": "5.5"
+      },
+      {
+       "age": "30대",
+       "amount_million": 43825,
+       "share_pct": "11.4"
+      },
+      {
+       "age": "40대",
+       "amount_million": 60100,
+       "share_pct": "15.7"
+      },
+      {
+       "age": "50대",
+       "amount_million": 74193,
+       "share_pct": "19.3"
+      },
+      {
+       "age": "60대",
+       "amount_million": 49074,
+       "share_pct": "12.8"
+      },
+      {
+       "age": "70대 이상",
+       "amount_million": 18207,
+       "share_pct": "4.7"
+      },
+      {
+       "age": "알수없음",
+       "amount_million": 116607,
+       "share_pct": "30.4"
+      }
+     ],
+     "by_sex": [
+      {
+       "sex": "남성",
+       "amount_million": 167158,
+       "share_pct": "43.6"
+      },
+      {
+       "sex": "여성",
+       "amount_million": 99683,
+       "share_pct": "26.0"
+      },
+      {
+       "sex": "알수없음",
+       "amount_million": 116888,
+       "share_pct": "30.5"
+      }
+     ]
+    },
+    "context": {
+     "weekday": {
+      "month": "202506",
+      "shares": [
+       {
+        "day": "월요일",
+        "uses": 494001,
+        "share_pct": "13.2"
+       },
+       {
+        "day": "화요일",
+        "uses": 513971,
+        "share_pct": "13.8"
+       },
+       {
+        "day": "수요일",
+        "uses": 522816,
+        "share_pct": "14.0"
+       },
+       {
+        "day": "목요일",
+        "uses": 525710,
+        "share_pct": "14.1"
+       },
+       {
+        "day": "금요일",
+        "uses": 530523,
+        "share_pct": "14.2"
+       },
+       {
+        "day": "토요일",
+        "uses": 533105,
+        "share_pct": "14.3"
+       },
+       {
+        "day": "일요일",
+        "uses": 614485,
+        "share_pct": "16.5"
+       },
+       {
+        "day": "공휴일",
+        "uses": 0,
+        "share_pct": "0.0"
+       }
+      ]
+     },
+     "time": {
+      "month": "202506",
+      "shares": [
+       {
+        "time": "오전",
+        "amount_million": 21858,
+        "share_pct": "15.1"
+       },
+       {
+        "time": "점심",
+        "amount_million": 35315,
+        "share_pct": "24.3"
+       },
+       {
+        "time": "오후",
+        "amount_million": 38122,
+        "share_pct": "26.3"
+       },
+       {
+        "time": "저녁",
+        "amount_million": 37771,
+        "share_pct": "26.0"
+       },
+       {
+        "time": "밤",
+        "amount_million": 12004,
+        "share_pct": "8.3"
+       }
+      ]
+     }
+    },
+    "local": {
+     "bjd": "노형동",
+     "month": "202506",
+     "summary": {
+      "month": "202506",
+      "biz": "한식 음식점업",
+      "bjd": "노형동",
+      "groups": [
+       {
+        "group": "resident",
+        "rows": 10,
+        "users": 434,
+        "uses": 509,
+        "amount": 13474490,
+        "amount_share_pct": "54.5"
+       },
+       {
+        "group": "domestic",
+        "rows": 20,
+        "users": 305,
+        "uses": 365,
+        "amount": 8262948,
+        "amount_share_pct": "33.4"
+       },
+       {
+        "group": "foreign",
+        "rows": 2,
+        "users": 22,
+        "uses": 22,
+        "amount": 548980,
+        "amount_share_pct": "2.2"
+       },
+       {
+        "group": "corporate",
+        "rows": 1,
+        "users": 231,
+        "uses": 266,
+        "amount": 2459702,
+        "amount_share_pct": "9.9"
+       }
+      ],
+      "total": {
+       "users": 992,
+       "uses": 1162,
+       "amount": 24746120
+      },
+      "export": {
+       "applied": true,
+       "masked_groups": [],
+       "totals_hidden": false
+      }
+     },
+     "need": [
+      {
+       "dataset": "카드 이용 현황(읍면동)_v02",
+       "month": "202406",
+       "why": "전년 동월 비교"
+      }
+     ]
+    }
+   },
+   "note": "province-level sections come from the bundled public files; the local section comes from the loaded center-format file (synthetic here) with the export pre-check"
+  },
+  {
+   "id": "D06",
+   "files": [],
+   "request": "사업계획서 시장 현황을 써 주세요",
+   "template": "ask_scope",
+   "params": {},
+   "expect": {
+    "slot": "biz"
+   },
+   "note": "no business named: ask which business"
+  },
+  {
+   "id": "D07",
+   "files": [],
+   "request": "한식 음식점업 자료 요약을 만들어 주세요",
+   "template": "data_brief",
+   "params": {
+    "biz": "한식 음식점업"
+   },
+   "expect": {
+    "summary": {
+     "month": "202506",
+     "biz": "한식 음식점업",
+     "bjd": null,
+     "groups": [
+      {
+       "group": "resident",
+       "rows": 3,
+       "users": 307322,
+       "uses": 331627,
+       "amount": 13235557519,
+       "amount_share_pct": "40.0"
+      },
+      {
+       "group": "domestic",
+       "rows": 3,
+       "users": 176443,
+       "uses": 185961,
+       "amount": 9035027156,
+       "amount_share_pct": "27.3"
+      },
+      {
+       "group": "foreign",
+       "rows": 4,
+       "users": 6370,
+       "uses": 6891,
+       "amount": 435252756,
+       "amount_share_pct": "1.3"
+      },
+      {
+       "group": "corporate",
+       "rows": 1,
+       "users": 120164,
+       "uses": 136439,
+       "amount": 10346899101,
+       "amount_share_pct": "31.3"
+      }
+     ],
+     "total": {
+      "users": 610299,
+      "uses": 660918,
+      "amount": 33052736532
+     },
+     "export": {
+      "applied": false,
+      "masked_groups": [],
+      "totals_hidden": false
+     }
+    },
+    "yoy": {
+     "month": "202506",
+     "prev_month": "202406",
+     "biz": "한식 음식점업",
+     "bjd": null,
+     "group": "all",
+     "measure": "amount",
+     "current": 33052736532,
+     "previous": 32480652437,
+     "diff": 572084095,
+     "pct": "1.8",
+     "export": {
+      "applied": false,
+      "masked": false
+     }
+    },
+    "need": []
+   },
+   "note": "trigger words: 자료 요약, 요약 자료, 요약해"
+  },
+  {
+   "id": "D08",
+   "files": [
+    "samples/SYNTHETIC_card_emd_v02_202506.csv"
+   ],
+   "request": "노형동 한식 음식점업 자료 요약을 만들어 주세요",
+   "template": "data_brief",
+   "params": {
+    "biz": "한식 음식점업",
+    "bjd": "노형동"
+   },
+   "expect": {
+    "summary": {
+     "month": "202506",
+     "biz": "한식 음식점업",
+     "bjd": "노형동",
+     "groups": [
+      {
+       "group": "resident",
+       "rows": 10,
+       "users": 434,
+       "uses": 509,
+       "amount": 13474490,
+       "amount_share_pct": "54.5"
+      },
+      {
+       "group": "domestic",
+       "rows": 20,
+       "users": 305,
+       "uses": 365,
+       "amount": 8262948,
+       "amount_share_pct": "33.4"
+      },
+      {
+       "group": "foreign",
+       "rows": 2,
+       "users": 22,
+       "uses": 22,
+       "amount": 548980,
+       "amount_share_pct": "2.2"
+      },
+      {
+       "group": "corporate",
+       "rows": 1,
+       "users": 231,
+       "uses": 266,
+       "amount": 2459702,
+       "amount_share_pct": "9.9"
+      }
+     ],
+     "total": {
+      "users": 992,
+      "uses": 1162,
+      "amount": 24746120
+     },
+     "export": {
+      "applied": true,
+      "masked_groups": [],
+      "totals_hidden": false
+     }
+    },
+    "yoy": null,
+    "need": [
+     {
+      "dataset": "카드 이용 현황(읍면동)_v02",
+      "month": "202406",
+      "why": "전년 동월 비교"
+     }
+    ]
+   },
+   "note": "active center-format table; previous-year month not loaded"
+  },
+  {
+   "id": "P01",
+   "files": [
+    "samples/SYNTHETIC_bus_station_usage_202611.csv"
+   ],
+   "request": "이 자료를 요약해 주세요",
+   "template": "profile",
+   "params": {},
+   "expect": {
+    "rows": 290,
+    "columns": [
+     {
+      "name": "base_date",
+      "non_empty": 290,
+      "distinct": 2,
+      "type": "date",
+      "min": "20261101",
+      "max": "20261102"
+     },
+     {
+      "name": "day_of_week",
+      "non_empty": 290,
+      "distinct": 2,
+      "type": "category",
+      "top": [
+       {
+        "value": "월",
+        "count": 148
+       },
+       {
+        "value": "일",
+        "count": 142
+       }
+      ]
+     },
+     {
+      "name": "base_hour",
+      "non_empty": 290,
+      "distinct": 5,
+      "type": "category",
+      "top": [
+       {
+        "value": "8",
+        "count": 60
+       },
+       {
+        "value": "18",
+        "count": 58
+       },
+       {
+        "value": "19",
+        "count": 58
+       },
+       {
+        "value": "7",
+        "count": 58
+       },
+       {
+        "value": "12",
+        "count": 56
+       }
+      ]
+     },
+     {
+      "name": "bus_station_id",
+      "non_empty": 290,
+      "distinct": 5,
+      "type": "category",
+      "top": [
+       {
+        "value": "358",
+        "count": 60
+       },
+       {
+        "value": "281",
+        "count": 59
+       },
+       {
+        "value": "1",
+        "count": 58
+       },
+       {
+        "value": "268",
+        "count": 58
+       },
+       {
+        "value": "96",
+        "count": 55
+       }
+      ]
+     },
+     {
+      "name": "bus_station_name",
+      "non_empty": 290,
+      "distinct": 5,
+      "type": "category",
+      "top": [
+       {
+        "value": "한라병원",
+        "count": 60
+       },
+       {
+        "value": "중앙로",
+        "count": 59
+       },
+       {
+        "value": "국제여객선터미널",
+        "count": 58
+       },
+       {
+        "value": "제주시청",
+        "count": 58
+       },
+       {
+        "value": "제주민속오일장",
+        "count": 55
+       }
+      ]
+     },
+     {
+      "name": "get_on_off_type",
+      "non_empty": 290,
+      "distinct": 2,
+      "type": "category",
+      "top": [
+       {
+        "value": "승차",
+        "count": 146
+       },
+       {
+        "value": "하차",
+        "count": 144
+       }
+      ]
+     },
+     {
+      "name": "user_category",
+      "non_empty": 290,
+      "distinct": 3,
+      "type": "category",
+      "top": [
+       {
+        "value": "일반",
+        "count": 99
+       },
+       {
+        "value": "경로",
+        "count": 96
+       },
+       {
+        "value": "청소년",
+        "count": 95
+       }
+      ]
+     },
+     {
+      "name": "pay_type",
+      "non_empty": 290,
+      "distinct": 1,
+      "type": "category",
+      "top": [
+       {
+        "value": "카드",
+        "count": 290
+       }
+      ]
+     },
+     {
+      "name": "user_count",
+      "non_empty": 290,
+      "distinct": 65,
+      "type": "number",
+      "sum": "5790",
+      "min": "1",
+      "max": "95"
+     }
+    ],
+    "period": {
+     "column": "base_date",
+     "min": "20261101",
+     "max": "20261102"
+    }
+   },
+   "note": "unknown header -> generic table -> profile only"
+  },
+  {
+   "id": "R01",
+   "files": [],
+   "request": "카페 창업 사업계획서를 쓰려는데 어떤 데이터를 받아야 하나요",
+   "template": "recommend_data",
+   "params": {},
+   "expect": {
+    "datasets": [
+     {
+      "id": "c108",
+      "label": "카드 이용 현황(읍면동)_v02",
+      "score": 3
+     },
+     {
+      "id": "c117",
+      "label": "제주도 내 업종별 매장 수",
+      "score": 1
+     },
+     {
+      "id": "f411",
+      "label": "내국인 유동인구(읍면동)_v02",
+      "score": 1
+     }
+    ]
+   },
+   "note": ""
+  },
+  {
+   "id": "R02",
+   "files": [],
+   "request": "우리 마을 버스 정류소 이용 현황을 보려면 무슨 자료가 필요한가요",
+   "template": "recommend_data",
+   "params": {},
+   "expect": {
+    "datasets": [
+     {
+      "id": "b304",
+      "label": "버스 정류소별 이용 현황",
+      "score": 2
+     },
+     {
+      "id": "b302",
+      "label": "버스 노선별 이용 현황",
+      "score": 1
+     }
+    ]
+   },
+   "note": ""
+  }
+ ]
+}
